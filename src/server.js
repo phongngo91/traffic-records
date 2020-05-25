@@ -5,6 +5,7 @@ const db = require("../config/keys").mongoURI;
 const users = require("../routes/api/users");
 const ordinances = require("../routes/api/ordinances");
 const signs = require("../routes/api/signs");
+const User = require("../models/User");
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -12,6 +13,11 @@ mongoose
   .catch(err => console.log(err));
 
 app.get("/", (req,res) => {
+  const user = new User({
+    userName: "kevin",
+    password: "kevinisgreat"
+  });
+  user.save();
   res.send("Hello A/a!");
 });
 
