@@ -9,20 +9,27 @@ const Sign = require("../models/Sign");
 const Ordinance = require("../models/Ordinance");
 const User = require("../models/User");
 const SignAction = require("../models/Sign_Action");
+const bodyParser = require("body-parser");
 
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to mongoDB"))
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
 
-app.get("/", (req,res) => {
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
+app.use(bodyParser.json());
+
+app.get("/", (req, res) => {
   const ordinance = new Ordinance();
   ordinance.number = "T.O. 12-2013";
 
-  ordinance.save()
-    .then(action => res.json({ message: "successfully saved"}))
-    .catch(err => res.json(err));
+  ordinance
+    .save()
+    .then((action) => res.json({ message: "successfully saved" }))
+    .catch((err) => res.json(err));
 });
 
 app.use("/api/users", users);
@@ -31,4 +38,6 @@ app.use("/api/signs", signs);
 
 const port = process.env.PORT || 5000;
 
-const server = app.listen(port, () => {console.log(`Listening on port ${port}`);});
+const server = app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
