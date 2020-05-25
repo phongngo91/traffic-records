@@ -21,6 +21,11 @@ const OrdinanceSchema = new Schema({
   adoptionDate: {
     type: "String"
   },
+  tags: [
+    {
+      type: "String"
+    }
+  ],
   signs: [
     {
       type: Schema.Types.ObjectId,
