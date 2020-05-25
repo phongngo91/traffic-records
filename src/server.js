@@ -15,17 +15,22 @@ mongoose
   .catch(err => console.log(err));
 
 app.get("/", (req,res) => {
-  const signAction = new SignAction();
-  signAction.action = "Install Stop Sign";
-  signAction.date = "05/13/1991";
+  // const signAction = new SignAction();
+  // signAction.action = "Install Stop Sign";
+  // signAction.date = "05/13/1991";
+  // signAction.names = "Bobs Burger";
 
-  signAction.save();
+  // signAction.save()
+  //   .then(action => res.json({ message: "successfully saved"}))
+  //   .catch(err => res.json(err));
 
-  // const sign = new Sign();
-  // sign.name = "Stop";
-  // sign.signActions.push("1234");
+  const sign = new Sign();
+  sign.name = "Stop";
+  sign.signActions.push("5ecbbce149c2275b40686e52");
 
-  // sign.save();
+  sign.save()
+    .then(action => res.json({ message: "successfully saved"}))
+    .catch(err => res.json(err));
 });
 
 app.use("/api/users", users);
