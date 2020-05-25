@@ -2,7 +2,7 @@
 
 * Issue: Server cannot run because the port 5000 is already in use
 
-```
+```bash
 phong: npm run server
 > traffic-records@1.0.0 server /Users/phongngo/Desktop/traffic-records
 > nodemon src/server.js
@@ -39,7 +39,7 @@ Emitted 'error' event on Server instance at:
 
 * Solution: Finding the PID of the port and killing it
 
-```
+```bash
 lsof -i:5000
 kill -9 PID
 ```
