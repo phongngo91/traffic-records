@@ -6,7 +6,7 @@ const OrdinanceSchema = new Schema({
     type: Boolean,
     default: true
   },
-  ordinanceNumber: {
+  number: {
     type: "String"
   },
   signs: [

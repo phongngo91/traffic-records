@@ -6,6 +6,7 @@ const users = require("../routes/api/users");
 const ordinances = require("../routes/api/ordinances");
 const signs = require("../routes/api/signs");
 const Sign = require("../models/Sign");
+const Ordinance = require("../models/Ordinance");
 const User = require("../models/User");
 const SignAction = require("../models/Sign_Action");
 
@@ -15,20 +16,11 @@ mongoose
   .catch(err => console.log(err));
 
 app.get("/", (req,res) => {
-  // const signAction = new SignAction();
-  // signAction.action = "Install Stop Sign";
-  // signAction.date = "05/13/1991";
-  // signAction.names = "Bobs Burger";
 
-  // signAction.save()
-  //   .then(action => res.json({ message: "successfully saved"}))
-  //   .catch(err => res.json(err));
+  const ordinance = new Ordinance();
+  ordinance.number = "12-2013";
 
-  const sign = new Sign();
-  sign.name = "Stop";
-  sign.signActions.push("5ecbbce149c2275b40686e52");
-
-  sign.save()
+  ordinance.save()
     .then(action => res.json({ message: "successfully saved"}))
     .catch(err => res.json(err));
 });
