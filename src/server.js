@@ -18,7 +18,7 @@ mongoose
 app.get("/", (req,res) => {
 
   const ordinance = new Ordinance();
-  ordinance.number = "12-2013";
+  ordinance.number = "T.O. 12-2013";
 
   ordinance.save()
     .then(action => res.json({ message: "successfully saved"}))
