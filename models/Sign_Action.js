@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 const SignActionSchema = new Schema({
   date: {
-    type: Date,
-    default: Date.now
+    type: "String"
   }, 
   action: {
     type: "String",
@@ -16,5 +15,5 @@ const SignActionSchema = new Schema({
   }
 });
 
-const SignAction = mongoose.model("users", SignActionSchema);
+const SignAction = mongoose.model("signActions", SignActionSchema);
 module.exports = SignAction;

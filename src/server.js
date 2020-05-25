@@ -5,7 +5,9 @@ const db = require("../config/keys").mongoURI;
 const users = require("../routes/api/users");
 const ordinances = require("../routes/api/ordinances");
 const signs = require("../routes/api/signs");
+const Sign = require("../models/Sign");
 const User = require("../models/User");
+const SignAction = require("../models/Sign_Action");
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -13,12 +15,17 @@ mongoose
   .catch(err => console.log(err));
 
 app.get("/", (req,res) => {
-  const user = new User({
-    userName: "kevin",
-    password: "kevinisgreat"
-  });
-  user.save();
-  res.send("Hello A/a!");
+  const signAction = new SignAction();
+  signAction.action = "Install Stop Sign";
+  signAction.date = "05/13/1991";
+
+  signAction.save();
+
+  // const sign = new Sign();
+  // sign.name = "Stop";
+  // sign.signActions.push("1234");
+
+  // sign.save();
 });
 
 app.use("/api/users", users);
