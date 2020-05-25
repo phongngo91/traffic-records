@@ -9,6 +9,18 @@ const OrdinanceSchema = new Schema({
   number: {
     type: "String"
   },
+  streetName: {
+    type: "String"
+  },
+  crossStreet: {
+    type: "String"
+  },
+  hamlet: {
+    type: "String"
+  },
+  adoptionDate: {
+    type: "String"
+  },
   signs: [
     {
       type: Schema.Types.ObjectId,
