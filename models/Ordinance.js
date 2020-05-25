@@ -12,6 +12,12 @@ const OrdinanceSchema = new Schema({
   streetName: {
     type: "String"
   },
+  travelDir: {
+    type: "String"
+  },
+  streetSide: {
+    type: "String"
+  },
   crossStreet: {
     type: "String"
   },
