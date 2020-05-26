@@ -8,7 +8,6 @@ router.get("/test", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  debugger
 
   Ordinance
     .find()

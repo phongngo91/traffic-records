@@ -40,5 +40,5 @@ const OrdinanceSchema = new Schema({
   ]
 });
 
-const Ordinance = mongoose.model("ordinances", OrdinanceSchema);
+const Ordinance = mongoose.model("ordinances-stopsign", OrdinanceSchema);
 module.exports = Ordinance;
